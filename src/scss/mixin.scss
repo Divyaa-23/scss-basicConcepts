@@ -1,0 +1,7 @@
+@mixin bar-animation($time-duration){
+    animation-name: move;
+    animation-duration: $time-duration;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}

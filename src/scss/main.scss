@@ -1,0 +1,141 @@
+
+
+// SCSS NESTING
+nav{
+  ul{
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+  }
+  li{
+      display: inline-block;
+  }
+  a{
+      padding: 10px;
+      text-decoration: none;
+  }
+}
+// // CSS
+// nav ul {
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+// }
+// nav li {
+//   display: inline-block;
+// }
+// nav a {
+//   display: block;
+//   padding: 6px 12px;
+//   text-decoration: none;
+// }
+
+
+@mixin text_funcName() {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+
+  // background-color: lighten(tomato,30%);
+  // background-color: darken(tomato,30%);
+  
+  // RGBA
+  // background-color:rgba(black,20%);
+  background-color:rgba(90, 215, 224,0.3);
+}
+
+p{
+  @include text_funcName();
+}
+
+
+// @extend --- lets us share CSS properties
+.basic-button  {
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-style: italic;
+}
+
+.addon-button {
+  @extend .basic-button ;
+  background-color: red;
+}
+
+// CSS CODE
+// .button-basic, .addon-button{
+//   border: none;
+//   padding: 15px 30px;
+//   text-align: center;
+//   font-size: 16px;
+//   cursor: pointer;
+// }
+
+// .addon-button{
+//   background-color: red;
+// }
+
+
+$myFont: Helvetica, sans-serif;
+$myColor: purple;
+$myFontSize: 18px;
+$myWidth: 680px;
+
+article {
+  font-family: $myFont;
+  font-size: $myFontSize;
+  color: $myColor;
+}
+
+// CSS
+// article {
+//   font-family: Helvetica, sans-serif;
+//   font-size: 18px;
+//   color: red;
+// }
+
+
+// SCOPE
+$setColor:hotpink;
+
+h1{
+$setColor:blue;
+  color: $setColor;
+}
+em{
+color:$setColor;
+}
+
+
+// .box div{
+//   display: inline-block;
+//   height: 50px;
+//   width: 50px;
+//   padding: 10px;
+//   background-color: pink;
+//   border: 2px solid black;
+// }
+@for $i from 1 through 10{
+div:nth-child(#{$i}){
+  background-color:hotpink;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+
+  @if (($i%2) == 0){
+border:2px solid black;
+  }
+  @else{
+    border:10px solid purple;
+  }
+}
+}
+
+
+
+
+
